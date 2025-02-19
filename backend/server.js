@@ -29,7 +29,7 @@ cloudinary.config({
 
 // Création du serveur Express et Socket.io
 const app = express();
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 // Configuration de __dirname pour les modules ES
 const __filename = fileURLToPath(import.meta.url);
@@ -78,10 +78,12 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
   });
 }
-
+app.use((req, res) => {
+  res.send('API is Running ...');
+});
 // Lancer le serveur
-server.listen(PORT, () => {
-  console.log(`🚀 Serveur en ligne sur le port ${PORT}`);
+server.listen(port, () => {
+  console.log(`🚀 Serveur en ligne sur le port ${port}`);
   connectMongoDB();
 });
  
