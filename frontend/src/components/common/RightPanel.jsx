@@ -28,19 +28,27 @@ const RightPanel = () => {
 	if (suggestedUsers?.length === 0) return <div className='md:w-64 w-0'></div>;
 
 	return (
-		<div className='hidden lg:block my-4 mx-2'>
+		<div className='hidden lg:block mt-16 mx-2'>
 			<div className='bg-[#16181C] p-4 rounded-md sticky top-2'>
 				<p className='font-bold'>Who to follow</p>
 				<div className='flex flex-col gap-4'>
-					{/* item */}
+					{/* Loading Skeleton */}
 					{isLoading && (
 						<>
 							<RightPanelSkeleton />
 							<RightPanelSkeleton />
 							<RightPanelSkeleton />
 							<RightPanelSkeleton />
+							<RightPanelSkeleton />
+							<RightPanelSkeleton />
+							<RightPanelSkeleton />
+							<RightPanelSkeleton />
+							<RightPanelSkeleton />
+							<RightPanelSkeleton />
 						</>
 					)}
+
+					{/* Suggested Users */}
 					{!isLoading &&
 						suggestedUsers?.map((user) => (
 							<Link
@@ -74,9 +82,22 @@ const RightPanel = () => {
 								</div>
 							</Link>
 						))}
+
+					{/* Contact the Developer Section */}
+					<div className='mt-4 pt-2 border-t border-gray-700 text-center'>
+						<a
+							href='https://www.linkedin.com/in/karoui-sameh/' // Change this to your actual website
+							target='_blank'
+							rel='noopener noreferrer'
+							className='btn bg-blue-500 text-white hover:bg-blue-600 rounded-full w-full py-2 mt-2'
+						>
+							📩 Contact Skaroui
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
 	);
 };
+
 export default RightPanel;
