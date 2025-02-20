@@ -7,15 +7,15 @@ const Posts = ({ feedType, username, userId }) => {
 	const getPostEndpoint = () => {
 		switch (feedType) {
 			case "forYou":
-				return "/api/posts/all";
+				return "https://skaroui.onrender.com/api/posts/all";
 			case "following":
-				return "/api/posts/following";
+				return "https://skaroui.onrender.com/api/posts/following";
 			case "posts":
-				return `/api/posts/user/${username}`;
+				return `https://skaroui.onrender.com/api/posts/user/${username}`;
 			case "likes":
-				return `/api/posts/likes/${userId}`;
+				return `https://skaroui.onrender.com/api/posts/likes/${userId}`;
 			default:
-				return "/api/posts/all";
+				return "https://skaroui.onrender.com/api/posts/all";
 		}
 	};
 
